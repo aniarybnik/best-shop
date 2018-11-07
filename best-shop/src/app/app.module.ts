@@ -1,3 +1,4 @@
+import { AppRouting } from './routing';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -7,8 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
 import { HeadingComponent } from './heading/heading.component';
 import { AddbuttonComponent } from './addbutton/addbutton.component';
-
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +20,9 @@ import { AddbuttonComponent } from './addbutton/addbutton.component';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRouting,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
