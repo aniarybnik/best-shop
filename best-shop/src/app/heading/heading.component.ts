@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-heading',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeadingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+
+  addProduct() {
+    this.router.navigate(['../addproduct']);
+  }
+
+  mainPage() {
+    this.router.navigate(['../shop']);
+  }
+
+  logOut() {
+    this.router.navigate(['../login']);
+  }
+
+  basket() {
+    this.router.navigate(['../basket']);
+  }
 }
