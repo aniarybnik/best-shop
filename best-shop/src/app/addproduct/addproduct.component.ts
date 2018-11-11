@@ -27,28 +27,21 @@ export class AddproductComponent implements OnInit {
 
   addProduct() {
 
-        // name: this.form.controls['name'].value,
-        // price: this.form.controls['price'].value,
-        // tags: this.form.controls['tags'].value,
-        // img: this.form.controls['img'].value,
-        // description: this.form.controls['description'].value,
-
-// Gdy wartosci zostaną wpisane na sztywno DZIAŁA, gdy sposobem powyżej nie bardzo -.-
 
          this.http.post('http://localhost:8443/api/product/add', {
-          name: 'Produkt 15',
-          price: 25,
-          tags: ['elektronika', 'komputery Pc'],
-          img: 'https://bakoma.pl/wp-content/uploads/bio_truskawka_370x370-200x200.png',
-          description: 'Produkt najwyższej jakości, wyprodukowany w Chinach'
+
+          name: this.form.controls['name'].value,
+          price: this.form.controls['price'].value,
+          tags: [this.form.controls['tags'].value],
+          img: this.form.controls['img'].value,
+          description: this.form.controls['description'].value,
          })
           .subscribe(resp => {
             console.log(resp);
          });
 
-           // console.log();
-
          this.form.reset();
+         alert('Produkt dodano do bazy !');
   }
 
 }
