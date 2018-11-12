@@ -15,8 +15,8 @@ form: FormGroup;
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: [],
-      password: []
+      name: ['', Validators.required],
+      password: ['', Validators.required],
 
       // name: ['', Validators.required],
       // password: ['', Validators.required]
