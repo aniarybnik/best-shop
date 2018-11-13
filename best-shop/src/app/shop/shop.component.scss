@@ -24,7 +24,7 @@ img
 
 
 .col-2 {
-  background-color:  #9fa9a3;
+  background-color:  #34495e;  // #9fa9a3;
   width: 200px;
   height: 200px;
   left: 20%;
@@ -33,7 +33,7 @@ img
 }
 
 .col-3 {
-  background-color:   #9fa9a3 ;
+  background-color: #34495e;   //#9fa9a3 ;
   // left: 201px;
   height: 200px;
   width: 200px;
@@ -45,7 +45,7 @@ img
 }
 
 .dodajKoszyk {
-  background-color:  #9fa9a3;
+  background-color:  #34495e; //#9fa9a3;
   width: 100px;
   height: 200px;
   text-align:center;
@@ -61,7 +61,7 @@ img
   text-align: center;
   padding-top: 20px;
   font-weight: 700;
-  color: #34495e;
+  color: pink; // #9fa9a3; //#34495e;
 }
 
 .description {
@@ -83,6 +83,6 @@ img
 }
 
 .d {
-  color: #34495e;
+  color: #9fa9a3; //#34495e;
   font-weight: 600;
 }
