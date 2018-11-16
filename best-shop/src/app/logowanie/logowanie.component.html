@@ -5,7 +5,7 @@
       <div class = "imageDiv">
         <img class = "image" width="50" height="50" src="https://melbournechapter.net/images/grocery-store-clipart-black-and-white-2.png">
       </div>
-  
+
       <div class = "title">
           <strong>B</strong>est Shop
       </div>
@@ -13,20 +13,23 @@
       <div class="form-group inputs">
       <input formControlName="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
       </div>
-  
+
       <div class="form-group inputs">
       <input  type="password" formControlName="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+      <div *ngIf="form.controls['password'].hasError('required') && form.controls['password'].touched">&Hasło jest wymagane</div>
       </div>
-  
+
 
       <div class="form-group zaloguj">
       <button [disabled]='!form.valid' (click)='add()' type="button" class=" btn btn-secondary">Zaloguj się</button>
-      </div>
+
+
+    </div>
 
 
 
 
     </form>
-  
+
  </div>
 

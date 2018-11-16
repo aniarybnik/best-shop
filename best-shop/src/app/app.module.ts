@@ -10,7 +10,7 @@ import { HeadingComponent } from './heading/heading.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { BasketComponent } from './basket/basket.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,8 +26,10 @@ import { BasketComponent } from './basket/basket.component';
     FormsModule,
     ReactiveFormsModule,
     AppRouting,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
