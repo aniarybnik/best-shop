@@ -20,7 +20,7 @@
 
 .body {
   width: 400px;
-  height: 450px; 
+  height: 450px;
   background-color: #34495e;
   position: absolute;
   margin-left: auto;
@@ -36,12 +36,12 @@
   height: 100px;
   background: white;
   border: 5px solid black;
-  
+
 }
 
 .imageDiv {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 35px;
 }
 
 strong {
@@ -55,7 +55,7 @@ strong {
   font-size: 25px;
   color:white;
   text-align: center;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 30px;
 }
 
@@ -68,4 +68,19 @@ strong {
 .zaloguj {
   text-align: center;
   padding-top: 20px;
+}
+
+p {
+  color: white;
+  text-align: center;
+  padding-top: 35px;
+  font-size: 11px;
+}
+
+.rejestracja {
+  cursor: pointer;
+}
+
+span {
+  color: #0081fa;
 }

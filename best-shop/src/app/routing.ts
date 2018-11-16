@@ -1,3 +1,4 @@
+import { RegistrationComponent } from './registration/registration.component';
 import { BasketComponent } from './basket/basket.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { ShopComponent } from './shop/shop.component';
@@ -28,6 +29,10 @@ export const routes: Routes = [
   {
     path: 'basket',
     component: BasketComponent
+  },
+  {
+    path: 'registration',
+    component: RegistrationComponent
   }
 ];
 

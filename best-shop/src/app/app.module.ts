@@ -11,6 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddproductComponent } from './addproduct/addproduct.component';
 import { BasketComponent } from './basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatTooltipModule } from '@angular/material';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ShopComponent,
     HeadingComponent,
     AddproductComponent,
-    BasketComponent
+    BasketComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     AppRouting,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
 
   providers: [],

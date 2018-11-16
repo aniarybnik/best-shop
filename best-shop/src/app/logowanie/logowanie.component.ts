@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-logowanie',
   templateUrl: './logowanie.component.html',
   styleUrls: ['./logowanie.component.scss'],
-  
+
 })
 export class LogowanieComponent implements OnInit {
 
@@ -30,5 +30,9 @@ form: FormGroup;
   add() {
     this.router.navigate(['../shop']);
     this.form.reset();
+  }
+
+  registration() {
+    this.router.navigate(['../registration']);
   }
 }
