@@ -30,7 +30,7 @@ modalRef: BsModalRef;
   }
 
 
-  add() {
+  logIn() {
 
     this.http.post('http://localhost:8443/api/user/login', {
       login: this.form.controls['name'].value,
@@ -38,6 +38,7 @@ modalRef: BsModalRef;
     }).subscribe(
       data => {
         // console.debug("TAK");
+         this.router.navigate(['../shop']);
     },
     error => {
         console.error(error);
@@ -46,7 +47,6 @@ modalRef: BsModalRef;
     }
     );
 
-    // this.router.navigate(['../shop']);
     this.form.reset();
   }
 

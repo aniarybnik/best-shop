@@ -1,4 +1,4 @@
-import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { BsModalRef } from 'ngx-bootstrap/modal';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class NgxBoxComponent implements OnInit {
 
 
-  modalRef: BsModalRef;
-  constructor() {}
+  // modalRef: BsModalRef;
+  constructor(public modalRef: BsModalRef) {}
 
   ngOnInit() {
   }

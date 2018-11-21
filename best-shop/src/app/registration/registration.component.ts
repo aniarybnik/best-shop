@@ -1,4 +1,4 @@
-import { Roleusers } from './roleusers';
+import { RoleUsers } from './RoleUsers';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
 
-  @Input() roleusers: Roleusers[];
+  @Input() roleusers: RoleUsers[];
 
   form: FormGroup;
   idxrole = 1;
@@ -28,12 +28,8 @@ export class RegistrationComponent implements OnInit {
     });
 
       this.http.get('http://localhost:8443/api/user/roles').subscribe(
-      (result: Roleusers[]) => {
-          this.roleusers = result.map((p: any) => {
-            p['id'] = p.id;
-            p['name'] = p.name;
-             return p;
-          });
+      (result: RoleUsers[]) => {
+          this.roleusers = result;
       });
   }
 
@@ -57,7 +53,7 @@ export class RegistrationComponent implements OnInit {
     .subscribe(resp => {
       console.log(resp);
    });
-    console.debug(this.idxrole);
+    // console.debug(this.idxrole);
     this.router.navigate(['../login']);
   }
 }
