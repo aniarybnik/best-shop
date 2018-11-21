@@ -30,6 +30,15 @@
           <input mat-raised-button matTooltip="Powtórz hasło!" matTooltipPosition ="right" type="password" formControlName="repeatPassword" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Repeat password">
       </div>
 
+      <div class="form-group inputs">
+      <select (change)="selectChangeHander($event)" class="custom-select" id="inputGroupSelect01" >
+            <option  *ngFor="let role of roleusers" [value]="role.id" >
+               {{role.name}}
+            </option>
+      </select>
+      </div>
+
+
       <div class="form-group registration">
       <button [disabled]='!form.valid' (click)='registartion_1()' type="button" class=" btn btn-secondary">Zarejestruj Się</button>
       </div>
@@ -37,3 +46,6 @@
     </form>
 
  </div>
+
+
+
