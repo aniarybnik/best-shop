@@ -13,6 +13,8 @@ import { BasketComponent } from './basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatTooltipModule } from '@angular/material';
 import { RegistrationComponent } from './registration/registration.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxBoxComponent } from './logowanie/ngx-box/ngx-box.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { RegistrationComponent } from './registration/registration.component';
     HeadingComponent,
     AddproductComponent,
     BasketComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    NgxBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +35,12 @@ import { RegistrationComponent } from './registration/registration.component';
     HttpClientModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    ModalModule.forRoot()
   ],
 
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [NgxBoxComponent]
 })
 export class AppModule { }
