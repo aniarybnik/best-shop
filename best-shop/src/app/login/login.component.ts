@@ -37,7 +37,7 @@ modalRef: BsModalRef;
     this.userRestService.login({login: this.form.controls['name'].value, password: this.form.controls['password'].value})
     .subscribe((result) => {
       console.debug(result);
-      this.router.navigate(['../shop']);
+      this.router.navigate(['../container']);
     },
     error => {
       this.modalRef = this.modalService.show(NgxBoxComponent);

@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistrationComponent } from './registration/registration.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserRestService } from './services/user-rest.service';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserRestService } from './services/user-rest.service';
     BasketComponent,
     RegistrationComponent,
     NgxBoxComponent,
+    ContainerComponent,
   ],
   imports: [
     BrowserModule,

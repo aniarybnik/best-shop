@@ -1,6 +1,6 @@
 
 <div class="row">
-  <div (click) = 'mainPage()' class="col-2 title">
+  <div [routerLink]="['.']" class="col-2 title">
       <strong>B</strong>est
       <img class ="img" src = "assets/img/open_shop.png">
       <p> &nbsp; Shop</p>
@@ -10,9 +10,9 @@
 
   <div class="col-6 cont">
     <nav>
-      <a (click) = 'mainPage()'>STRONA GŁÓWNA</a>
-      <a (click) = 'addProduct()'>DODAJ PRZEDMIOT</a>
-      <a (click) = 'basket()'>KOSZYK</a>
+      <a [routerLink]="['.']">STRONA GŁÓWNA</a>
+      <a [routerLink]="['addProduct']">DODAJ PRZEDMIOT</a>
+      <a [routerLink]="['basket']">KOSZYK</a>
       <a (click) = 'logOut()'>WYLOGUJ</a>
       <div class="animation start-home"></div>
     </nav>

@@ -15,19 +15,19 @@ export class HeadingComponent implements OnInit {
   }
 
 
-  addProduct() {
-    this.router.navigate(['../addproduct']);
-  }
+  // addProduct() {
+  //   this.router.navigate(['../container, addProduct']);
+  // }
 
-  mainPage() {
-    this.router.navigate(['../shop']);
-  }
+  // mainPage() {
+  //   this.router.navigate(['../shop']);
+  // }
 
   logOut() {
     this.router.navigate(['../login']);
   }
 
-  basket() {
-    this.router.navigate(['../basket']);
-  }
+  // basket() {
+  //   this.router.navigate(['../basket']);
+  // }
 }

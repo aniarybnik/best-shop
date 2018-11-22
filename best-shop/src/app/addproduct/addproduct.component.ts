@@ -40,7 +40,7 @@ export class AddProductComponent implements OnInit {
          })
           .subscribe(resp => {
             console.log(resp);
-            this.router.navigate(['../shop']);
+            this.router.navigate(['../container']);
          });
 
 
