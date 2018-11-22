@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-addproduct',
-  templateUrl: './addproduct.component.html',
-  styleUrls: ['./addproduct.component.scss']
+  selector: 'app-addProduct',
+  templateUrl: './addProduct.component.html',
+  styleUrls: ['./addProduct.component.scss']
 })
-export class AddproductComponent implements OnInit {
+export class AddProductComponent implements OnInit {
 
  form: FormGroup;
   constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { }
@@ -40,12 +40,13 @@ export class AddproductComponent implements OnInit {
          })
           .subscribe(resp => {
             console.log(resp);
+            this.router.navigate(['../shop']);
          });
 
-         this.router.navigate(['../shop']);
+
 
          // this.form.reset();
-    
+
   }
 
 }

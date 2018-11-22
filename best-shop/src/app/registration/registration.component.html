@@ -1,9 +1,9 @@
 <div class = "body">
 
-    <form [formGroup] = "form" class = "logowanie">
+    <form [formGroup] = "form">
 
       <div class = "imageDiv">
-        <img class = "image" width="50" height="50" src="https://melbournechapter.net/images/grocery-store-clipart-black-and-white-2.png">
+        <img class = "image" src="assets/img/image_shop.png">
       </div>
 
       <div class = "title">
@@ -11,28 +11,28 @@
       </div>
 
       <div class="form-group inputs">
-      <input formControlName="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+      <input formControlName="name"  class="form-control" placeholder="Imię">
       </div>
 
       <div class="form-group inputs">
-          <input formControlName="lastName"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last name">
+          <input formControlName="lastName"  class="form-control" placeholder="Nazwisko">
       </div>
 
       <div class="form-group inputs">
-          <input mat-raised-button matTooltip="Login jest wymagany !" matTooltipPosition ="right" formControlName="login"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Login">
+          <input formControlName="login"  class="form-control"  placeholder="Login">
       </div>
 
       <div class="form-group inputs">
-          <input mat-raised-button matTooltip="Hasło jest wymagane !" matTooltipPosition ="right" type="password" formControlName="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Password">
+          <input type="password" formControlName="password" class="form-control"  placeholder="Hasło">
       </div>
 
       <div class="form-group inputs">
-          <input mat-raised-button matTooltip="Powtórz hasło!" matTooltipPosition ="right" type="password" formControlName="repeatPassword" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Repeat password">
+          <input type="password" formControlName="repeatPassword" class="form-control" placeholder="Powtórz hasło">
       </div>
 
       <div class="form-group inputs">
       <select (change)="selectChangeHander($event)" class="custom-select" id="inputGroupSelect01" >
-            <option  *ngFor="let role of roleusers" [value]="role.id" >
+            <option  *ngFor="let role of roleUsers" [value]="role.id" >
                {{role.name}}
             </option>
       </select>
@@ -40,7 +40,7 @@
 
 
       <div class="form-group registration">
-      <button [disabled]='!form.valid' (click)='registartion_1()' type="button" class=" btn btn-secondary">Zarejestruj Się</button>
+      <button [disabled]='!form.valid' (click)='registartion()' type="button" class=" btn btn-secondary">Zarejestruj się</button>
       </div>
 
     </form>

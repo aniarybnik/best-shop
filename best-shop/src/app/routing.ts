@@ -1,8 +1,8 @@
 import { RegistrationComponent } from './registration/registration.component';
 import { BasketComponent } from './basket/basket.component';
-import { AddproductComponent } from './addproduct/addproduct.component';
+import { AddProductComponent } from './addProduct/addProduct.component';
 import { ShopComponent } from './shop/shop.component';
-import { LogowanieComponent } from './logowanie/logowanie.component';
+import { LoginComponent } from './login/login.component';
 import { Component } from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
@@ -16,7 +16,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LogowanieComponent
+    component: LoginComponent
   },
   {
     path: 'shop',
@@ -24,7 +24,7 @@ export const routes: Routes = [
   },
   {
     path: 'addproduct',
-    component: AddproductComponent
+    component: AddProductComponent
   },
   {
     path: 'basket',

@@ -1,8 +1,13 @@
-import { RoleUsers } from './RoleUsers';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+
+export interface RoleUsers {
+  id;
+  name;
+}
+
 
 @Component({
   selector: 'app-registration',
@@ -12,10 +17,10 @@ import { Router } from '@angular/router';
 export class RegistrationComponent implements OnInit {
 
 
-  @Input() roleusers: RoleUsers[];
+  @Input() roleUsers: RoleUsers[];
 
   form: FormGroup;
-  idxrole = 1;
+  idxRole = 1;
   constructor(private fb: FormBuilder, private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
@@ -28,18 +33,19 @@ export class RegistrationComponent implements OnInit {
     });
 
       this.http.get('http://localhost:8443/api/user/roles').subscribe(
-      (result: RoleUsers[]) => {
-          this.roleusers = result;
-      });
+       (result: RoleUsers[]) => {
+            this.roleUsers = result;
+       }
+      );
   }
 
   selectChangeHander (event: any) {
-    this.idxrole = event.target.value; // idx
-    // console.debug(this.idxrole);
+    this.idxRole = event.target.value;
+     console.debug(this.idxRole);
   }
 
 
-  registartion_1 () {
+  registartion() {
 
 
     this.http.post('http://localhost:8443/api/user/add', {
@@ -48,12 +54,12 @@ export class RegistrationComponent implements OnInit {
       name: this.form.controls['name'].value,
       lastName: this.form.controls['lastName'].value,
       password: this.form.controls['password'].value,
-      role: this.idxrole,
+      role: this.idxRole,
     })
     .subscribe(resp => {
       console.log(resp);
+      this.router.navigate(['../login']);
+
    });
-    // console.debug(this.idxrole);
-    this.router.navigate(['../login']);
   }
 }
