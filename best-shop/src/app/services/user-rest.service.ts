@@ -8,6 +8,14 @@ export interface LoginData {
   password;
 }
 
+export interface RegistrationData {
+  login;
+  name;
+  lastName;
+  password;
+  role;
+}
+
 @Injectable()
 export class UserRestService extends Rest {
 
@@ -19,6 +27,15 @@ export class UserRestService extends Rest {
     return this.http.post(this.url + 'user/login', data);
     // return this.http.post(`${this.url}user/login`, data);
   }
+
+  roleUser () {
+    return this.http.get(this.url + 'user/roles');
+  }
+
+  registrationUser (data: RegistrationData) {
+    return this.http.post(this.url + 'user/add', data);
+  }
+
 }
 
 

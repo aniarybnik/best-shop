@@ -1,3 +1,4 @@
+import { ProductService } from './../services/product.service';
 import { Component, OnInit, Input} from '@angular/core';
 import {Product} from './product';
 import { HttpClient } from '@angular/common/http';
@@ -11,19 +12,50 @@ export class ShopComponent implements OnInit {
 
   @Input() products: Product[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,
+              private productService: ProductService) { }
 
   ngOnInit() {
-    this.http.get('http://localhost:8443/api/product/list').subscribe(
-        (result: Product[]) => {
-          // console.debug(result);
-            this.products = result.map((p: any) => {
-              p['link'] = p.img;
-              p['title'] = p.name;
-              delete p.name;
-              delete p.img;
-               return p;
-            });
+
+    this.productService.getProduct().subscribe(
+      (result: Product[]) => {
+          this.products = result.map((p: any) => {
+            p['link'] = p.img;
+            p['title'] = p.name;
+            delete p.name;
+            delete p.img;
+             return p;
+          });
+
+      },
+      (err) => {
+        console.error(err);
+      }
+    );
+
+
+    // this.http.get('http://localhost:8443/api/product/list').subscribe(
+    //     (result: Product[]) => {
+    //       // console.debug(result);
+    //         this.products = result.map((p: any) => {
+    //           p['link'] = p.img;
+    //           p['title'] = p.name;
+    //           delete p.name;
+    //           delete p.img;
+    //            return p;
+    //         });
+
+    //     },
+    //     (err) => {
+    //       console.error(err);
+    //     }
+    //   );
+  }
+
+
+}
+
+
             // this.products = result.reduce((a: any, b: any, c: any) => {
             //   let t = {};
             //   Object.keys(b).forEach((key) => {
@@ -40,12 +72,3 @@ export class ShopComponent implements OnInit {
             //   return a;
             // }, []);
             // console.debug(this.products);
-        },
-        (err) => {
-          console.error(err);
-        }
-      );
-  }
-
-
-}

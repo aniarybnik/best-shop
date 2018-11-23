@@ -1,3 +1,4 @@
+import { ModalService } from './../services/modal.service';
 import { NgxBoxComponent } from './../ngx-box/ngx-box.component';
 import { HttpClient } from '@angular/common/http';
 import { routes } from './../routing';
@@ -21,7 +22,7 @@ modalRef: BsModalRef;
   constructor(private fb: FormBuilder,
               private router: Router,
               private http: HttpClient,
-              private modalService: BsModalService,
+              private modalService: ModalService,
               private userRestService: UserRestService) { }
 
   ngOnInit(): void {
@@ -40,9 +41,18 @@ modalRef: BsModalRef;
       this.router.navigate(['../container']);
     },
     error => {
-      this.modalRef = this.modalService.show(NgxBoxComponent);
+      this.modalService.message('Brak użytkownika w bazie ! ', 'Błąd !');
+      // this.modalRef = this.modalService.show(NgxBoxComponent);
     });
+    this.form.reset();
+  }
 
+  registration() {
+    this.router.navigate(['../registration']);
+  }
+}
+
+    // Without service Login
     // this.http.post('http://localhost:8443/api/user/login', {
     //   login: this.form.controls['name'].value,
     //   password: this.form.controls['password'].value,
@@ -57,14 +67,3 @@ modalRef: BsModalRef;
 
     // }
     // );
-
-    this.form.reset();
-  }
-
-  registration() {
-    this.router.navigate(['../registration']);
-  }
-
-
-
-}

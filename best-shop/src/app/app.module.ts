@@ -1,3 +1,4 @@
+import { ModalService } from './services/modal.service';
 import { NgxBoxComponent } from './ngx-box/ngx-box.component';
 import { AppRouting } from './routing';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,11 +12,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './addProduct/addProduct.component';
 import { BasketComponent } from './basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import { MatButtonModule, MatTooltipModule } from '@angular/material';
 import { RegistrationComponent } from './registration/registration.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserRestService } from './services/user-rest.service';
 import { ContainerComponent } from './container/container.component';
+import { ProductService } from './services/product.service';
+
 
 @NgModule({
   declarations: [
@@ -36,12 +38,10 @@ import { ContainerComponent } from './container/container.component';
     AppRouting,
     HttpClientModule,
     BrowserAnimationsModule,
-    // MatButtonModule,
-    // MatTooltipModule,
     ModalModule.forRoot()
   ],
 
-  providers: [UserRestService],
+  providers: [UserRestService, ProductService, ModalService],
   bootstrap: [AppComponent],
   entryComponents: [NgxBoxComponent]
 })
