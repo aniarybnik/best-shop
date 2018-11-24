@@ -19,7 +19,8 @@ export class LoginComponent implements OnInit {
 
 form: FormGroup;
 modalRef: BsModalRef;
-  constructor(private fb: FormBuilder,
+
+constructor(private fb: FormBuilder,
               private router: Router,
               private http: HttpClient,
               private modalService: ModalService,
@@ -34,10 +35,10 @@ modalRef: BsModalRef;
 
 
   logIn() {
-
     this.userRestService.login({login: this.form.controls['name'].value, password: this.form.controls['password'].value})
     .subscribe((result) => {
-      console.debug(result);
+      // console.debug(result);
+      sessionStorage.setItem('user', JSON.stringify(result));
       this.router.navigate(['../container']);
     },
     error => {

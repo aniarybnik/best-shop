@@ -11,7 +11,11 @@ export class HeadingComponent implements OnInit {
 
   constructor(private router: Router) { }
 
+  public item;
+  currentUser;
+
   ngOnInit() {
+      this.currentUser = JSON.parse(sessionStorage.getItem('user'));
   }
 
 
