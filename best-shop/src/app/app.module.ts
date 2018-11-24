@@ -1,3 +1,4 @@
+import { StorageService } from './services/storage.service';
 import { ModalService } from './services/modal.service';
 import { NgxBoxComponent } from './ngx-box/ngx-box.component';
 import { AppRouting } from './routing';
@@ -41,7 +42,7 @@ import { ProductService } from './services/product.service';
     ModalModule.forRoot()
   ],
 
-  providers: [UserRestService, ProductService, ModalService],
+  providers: [UserRestService, ProductService, ModalService, StorageService],
   bootstrap: [AppComponent],
   entryComponents: [NgxBoxComponent]
 })

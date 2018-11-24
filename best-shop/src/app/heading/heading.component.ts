@@ -1,3 +1,4 @@
+import { StorageService } from './../services/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,14 +10,24 @@ import { Router } from '@angular/router';
 })
 export class HeadingComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private storageService: StorageService) { }
 
   public item;
   currentUser;
 
   ngOnInit() {
-      this.currentUser = JSON.parse(sessionStorage.getItem('user'));
+      this.currentUser = this.storageService.takeStorage('user');
   }
+
+  logOut() {
+    sessionStorage.clear();
+    // localStorage.clear();
+    this.router.navigate(['../login']);
+  }
+
+}
+
 
 
   // addProduct() {
@@ -27,11 +38,6 @@ export class HeadingComponent implements OnInit {
   //   this.router.navigate(['../shop']);
   // }
 
-  logOut() {
-    this.router.navigate(['../login']);
-  }
-
-  // basket() {
+    // basket() {
   //   this.router.navigate(['../basket']);
   // }
-}
