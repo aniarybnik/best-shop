@@ -15,6 +15,17 @@ export class BasketComponent implements OnInit {
     this.productUser = this.storageService.takeStorage('arrayProduct');
   }
 
+  addIdx(product) {
+
+    if ( product.count < product.link.length - 1 ) {
+        // console.debug('Licznik', product.count);
+        // console.debug('ilosc zdjęć', product.link.length);
+        return product.count += 1;
+    } else {
+        return product.count = 0;
+    }
+
+  }
 
 
 }

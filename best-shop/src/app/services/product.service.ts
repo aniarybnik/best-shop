@@ -10,6 +10,7 @@ export interface ProductData {
   img;
   description;
   producer;
+  userId;
 }
 
 @Injectable()
@@ -27,4 +28,7 @@ export class ProductService extends Rest {
     return this.http.get(this.url + 'product/list');
   }
 
+  getProductSeller(userId) {
+    return this.http.get(this.url + 'product/list/' + userId);
+  }
 }

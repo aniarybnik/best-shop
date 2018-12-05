@@ -1,5 +1,6 @@
 
 <div class="row">
+
   <div [routerLink]="['.']" class="col-2 title">
       <strong>B</strong>est
       <img class ="img" src = "assets/img/open_shop.png">
@@ -8,15 +9,17 @@
 
 
 
-  <div class="col-6 cont">
-    <nav>
-      <a [routerLink]="['.']">STRONA GŁÓWNA</a>
-      <a [routerLink]="['addProduct']">DODAJ PRZEDMIOT</a>
-      <a [routerLink]="['basket']">KOSZYK</a>
-      <a (click) = 'logOut()'>WYLOGUJ  </a>
-      <div class="animation start-home"></div>
-    </nav>
+
+  <div class = "row container">
+
+    <div class="col" [routerLink]="['.']"> <a> STRONA GŁÓWNA </a> </div>
+    <div class="col" [routerLink]="['addProduct']" *ngIf="flagaUser"> <a> DODAJ PRZEDMIOT </a></div>
+    <div class="col" [routerLink]="['basket']" *ngIf="flagaSeller"> <a> KOSZYK </a> </div>
+    <div class="col" (click) = 'logOut()'> <a> WYLOGUJ </a></div>
+
   </div>
+
+
 
   <div class="col-2 nameLogin">
     <img width="25" height="25" src= "assets/img/user_icon.png">

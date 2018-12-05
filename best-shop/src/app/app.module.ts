@@ -1,3 +1,4 @@
+import { InterceptorService } from './services/interceptor';
 import { BasketService } from './services/basket.service';
 import { StorageService } from './services/storage.service';
 import { ModalService } from './services/modal.service';
@@ -10,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
 import { HeadingComponent } from './heading/heading.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddProductComponent } from './addProduct/addProduct.component';
 import { BasketComponent } from './basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +20,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserRestService } from './services/user-rest.service';
 import { ContainerComponent } from './container/container.component';
 import { ProductService } from './services/product.service';
+
 
 
 @NgModule({
@@ -43,7 +45,16 @@ import { ProductService } from './services/product.service';
     ModalModule.forRoot()
   ],
 
-  providers: [UserRestService, ProductService, ModalService, StorageService, BasketService],
+  providers: [UserRestService,
+              ProductService,
+              ModalService,
+              StorageService,
+              BasketService,
+            {
+              provide: HTTP_INTERCEPTORS,
+              useClass: InterceptorService,
+              multi: true
+            }],
   bootstrap: [AppComponent],
   entryComponents: [NgxBoxComponent]
 })

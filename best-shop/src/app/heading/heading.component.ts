@@ -19,10 +19,22 @@ export class HeadingComponent implements OnInit {
 
   public item;
   currentUser;
-
+  userRole;
+  flagaSeller = true;
+  flagaUser = true;
 
   ngOnInit() {
       this.currentUser = this.storageService.takeStorage('user');
+      this.userRole = this.currentUser.role;
+      // console.debug(this.userRole);
+
+      if (this.userRole === 3) {
+        this.flagaSeller = false;
+      }
+
+      if (this.userRole === 2) {
+         this.flagaUser = false;
+      }
   }
 
   logOut() {

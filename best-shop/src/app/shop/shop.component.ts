@@ -1,3 +1,4 @@
+import { StorageService } from './../services/storage.service';
 import { BasketComponent } from './../basket/basket.component';
 import { BasketService } from './../services/basket.service';
 import { ProductService } from './../services/product.service';
@@ -15,27 +16,61 @@ export class ShopComponent implements OnInit {
 
   @Input() products: Product[];
 
+  currentUser;
+  userRole;
+
   constructor(private http: HttpClient,
               private productService: ProductService,
-              private basketService: BasketService) { }
+              private basketService: BasketService,
+              private storageService: StorageService) { }
 
   ngOnInit() {
 
-    this.productService.getProduct().subscribe(
-      (result: Product[]) => {
-          this.products = result.map((p: any) => {
-            p['link'] = p.img;
-            p['title'] = p.name;
-            delete p.name;
-            delete p.img;
-             return p;
-          });
+    this.currentUser = this.storageService.takeStorage('user');
+    this.userRole = this.currentUser.role;
 
-      },
-      (err) => {
-        console.error(err);
-      }
-    );
+    if (this.userRole === 3) {
+
+      this.productService.getProductSeller(this.currentUser.id).subscribe(
+        (result: Product[]) => {
+            this.products = result.map((p: any) => {
+
+              p['link'] = p.img.toString().split(',');
+              // console.debug(p.img.toString().split(','));
+              p['title'] = p.name;
+              p['count'] = 0;
+              delete p.name;
+              delete p.img;
+              return p;
+            });
+
+        },
+        (err) => {
+          console.error(err);
+        }
+      );
+
+    } else {
+          this.productService.getProduct().subscribe(
+            (result: Product[]) => {
+                this.products = result.map((p: any) => {
+
+                  p['link'] = p.img.toString().split(',');
+                  // console.debug(p.img.toString().split(','));
+                  p['title'] = p.name;
+                  p['count'] = 0;
+                  delete p.name;
+                  delete p.img;
+                  return p;
+                });
+
+            },
+            (err) => {
+              console.error(err);
+            }
+          );
+          }
+
 
   }
 
@@ -43,6 +78,17 @@ export class ShopComponent implements OnInit {
     this.basketService.addToBasket('products', products);
   }
 
+  addIdx(product) {
+
+    if ( product.count < product.link.length - 1 ) {
+        // console.debug('Licznik', product.count);
+        // console.debug('ilosc zdjęć', product.link.length);
+        return product.count += 1;
+    } else {
+        return product.count = 0;
+    }
+
+  }
 
 }
 

@@ -47,7 +47,7 @@ export class RegistrationComponent implements OnInit {
 
   selectChangeHander (event: any) {
     this.idxRole = event.target.value;
-     console.debug(this.idxRole);
+    //  console.debug(this.idxRole);
   }
 
 

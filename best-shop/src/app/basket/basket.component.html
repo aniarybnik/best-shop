@@ -2,7 +2,7 @@
   <div class = "row"  *ngFor="let product of productUser">
       <div class="col-2 image">
           <!-- <img width="200" height="200" [src]=""> -->
-          <img width="180" height="180"  src={{product.link}}>
+          <img width="180" height="180" (click)="addIdx(product)" [src]="'http://localhost:8443/images/' + product.link[product.count]">
       </div>
 
       <div class="col-3 divv">

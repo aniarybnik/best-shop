@@ -21,7 +21,7 @@ export class BasketService {
 
     this.addArrayProduct('arrayProduct', this.basket);
 
-    console.debug(this.basket);
+    // console.debug(this.basket);
   }
 
 
