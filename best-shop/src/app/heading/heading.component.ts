@@ -1,6 +1,7 @@
 import { StorageService } from './../services/storage.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -10,11 +11,15 @@ import { Router } from '@angular/router';
 })
 export class HeadingComponent implements OnInit {
 
+
+  // @Input() point;
+
   constructor(private router: Router,
-              private storageService: StorageService) { }
+              private storageService: StorageService) {}
 
   public item;
   currentUser;
+
 
   ngOnInit() {
       this.currentUser = this.storageService.takeStorage('user');
@@ -25,6 +30,7 @@ export class HeadingComponent implements OnInit {
     // localStorage.clear();
     this.router.navigate(['../login']);
   }
+
 
 }
 

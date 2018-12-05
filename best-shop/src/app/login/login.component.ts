@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
 form: FormGroup;
 modalRef: BsModalRef;
+data;
 
 constructor(private fb: FormBuilder,
               private router: Router,

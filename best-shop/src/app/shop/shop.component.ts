@@ -1,7 +1,10 @@
+import { BasketComponent } from './../basket/basket.component';
+import { BasketService } from './../services/basket.service';
 import { ProductService } from './../services/product.service';
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {Product} from './product';
 import { HttpClient } from '@angular/common/http';
+// import { EventEmitter } from 'events';
 
 @Component({
   selector: 'app-shop',
@@ -13,7 +16,8 @@ export class ShopComponent implements OnInit {
   @Input() products: Product[];
 
   constructor(private http: HttpClient,
-              private productService: ProductService) { }
+              private productService: ProductService,
+              private basketService: BasketService) { }
 
   ngOnInit() {
 
@@ -33,6 +37,19 @@ export class ShopComponent implements OnInit {
       }
     );
 
+  }
+
+  addProductToBasket(products: Product) {
+    this.basketService.addToBasket('products', products);
+  }
+
+
+}
+
+
+
+
+
 
     // this.http.get('http://localhost:8443/api/product/list').subscribe(
     //     (result: Product[]) => {
@@ -50,10 +67,6 @@ export class ShopComponent implements OnInit {
     //       console.error(err);
     //     }
     //   );
-  }
-
-
-}
 
 
             // this.products = result.reduce((a: any, b: any, c: any) => {
