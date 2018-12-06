@@ -31,4 +31,8 @@ export class BasketService {
 
   }
 
+  get productsCount() {
+    return this.basket.length;
+  }
+
 }

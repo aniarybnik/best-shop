@@ -24,11 +24,14 @@ export class ProductService extends Rest {
     return this.http.post(this.url + 'product/add', data);
   }
 
-  getProduct() {
-    return this.http.get(this.url + 'product/list');
+  getProduct(userRole, userId) {
+
+    if (userRole === 3) {
+      return this.http.get(this.url + 'product/list/' + userId);
+
+    } else {
+      return this.http.get(this.url + 'product/list');
+    }
   }
 
-  getProductSeller(userId) {
-    return this.http.get(this.url + 'product/list/' + userId);
-  }
 }

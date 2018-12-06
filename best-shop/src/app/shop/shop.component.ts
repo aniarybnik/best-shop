@@ -19,6 +19,7 @@ export class ShopComponent implements OnInit {
   currentUser;
   userRole;
 
+
   constructor(private http: HttpClient,
               private productService: ProductService,
               private basketService: BasketService,
@@ -29,9 +30,7 @@ export class ShopComponent implements OnInit {
     this.currentUser = this.storageService.takeStorage('user');
     this.userRole = this.currentUser.role;
 
-    if (this.userRole === 3) {
-
-      this.productService.getProductSeller(this.currentUser.id).subscribe(
+      this.productService.getProduct(this.userRole, this.currentUser.id).subscribe(
         (result: Product[]) => {
             this.products = result.map((p: any) => {
 
@@ -49,34 +48,12 @@ export class ShopComponent implements OnInit {
           console.error(err);
         }
       );
-
-    } else {
-          this.productService.getProduct().subscribe(
-            (result: Product[]) => {
-                this.products = result.map((p: any) => {
-
-                  p['link'] = p.img.toString().split(',');
-                  // console.debug(p.img.toString().split(','));
-                  p['title'] = p.name;
-                  p['count'] = 0;
-                  delete p.name;
-                  delete p.img;
-                  return p;
-                });
-
-            },
-            (err) => {
-              console.error(err);
-            }
-          );
-          }
-
-
   }
 
   addProductToBasket(products: Product) {
     this.basketService.addToBasket('products', products);
   }
+
 
   addIdx(product) {
 

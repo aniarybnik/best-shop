@@ -1,3 +1,4 @@
+import { BasketService } from './../services/basket.service';
 import { StorageService } from './../services/storage.service';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
@@ -12,10 +13,9 @@ import { Router } from '@angular/router';
 export class HeadingComponent implements OnInit {
 
 
-  // @Input() point;
-
   constructor(private router: Router,
-              private storageService: StorageService) {}
+              private storageService: StorageService,
+              private basketService: BasketService) {}
 
   public item;
   currentUser;
@@ -29,18 +29,22 @@ export class HeadingComponent implements OnInit {
       // console.debug(this.userRole);
 
       if (this.userRole === 3) {
-        this.flagaSeller = false;
+          this.flagaSeller = false;
+      }
+      if (this.userRole === 2) {
+          this.flagaUser = false;
       }
 
-      if (this.userRole === 2) {
-         this.flagaUser = false;
-      }
   }
 
   logOut() {
     sessionStorage.clear();
     // localStorage.clear();
     this.router.navigate(['../login']);
+  }
+
+  get productsCount() {
+    return this.basketService.productsCount;
   }
 
 
