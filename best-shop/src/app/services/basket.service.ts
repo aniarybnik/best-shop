@@ -35,4 +35,20 @@ export class BasketService {
     return this.basket.length;
   }
 
+  removeProduct(product, productUser) {
+
+    const index = productUser.findIndex((p) => p.id === product.id);
+
+    console.debug(index); // index produktu w macierzy
+
+    if (index > -1) {
+        productUser.splice(index, 1);
+   }
+
+  //  console.debug(productUser);
+
+   this.storageService.addStorage('arrayProduct', productUser);
+   return productUser;
+  }
+
 }

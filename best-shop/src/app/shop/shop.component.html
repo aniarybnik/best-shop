@@ -1,23 +1,30 @@
 <!-- <app-heading></app-heading> -->
 
-<div class = "centerr">
+<!-- <div class = "centerr"> -->
   <div class = "row"  *ngFor="let product of products">
-      <div class="col-2 image">
+
+      <div class="col-3 image">
           <!-- <img width="200" height="200" [src]=""> -->
-          <img width="180" height="180" (click)="addIdx(product)" [src]="'http://localhost:8443/images/' + product.link[product.count]">
+          <img (click)="addIdx(product)" [src]="'http://localhost:8443/images/' + product.link[product.count]">
       </div>
 
-      <div class="col-3 divv">
+      <div class="col-1"></div>
+
+      <div class="col-4 middle">
             <p class = "title"> {{product.title}} </p>
             <p class = "description"> {{product.description}} </p>
       </div>
 
+      <!-- <div class="col-1"></div> -->
 
-      <div class = "col-2 dodajKoszyk">
+      <div class = "col-4 dodajKoszyk">
           <p class = "price"> <span class="d"> cena: </span> {{product.price}} zł </p>
           <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
 
-        <button (click)='addProductToBasket(product)' type="button" class="przycisk btn btn-secondary">Dodaj do koszyka </button>
+        <button *ngIf="userRole == 2" (click)='addProductToBasket(product)' type="button" class="przycisk btn btn-secondary">Dodaj do koszyka </button>
+        <button *ngIf="userRole == 3"  type="button" class="przycisk btn btn-secondary"> Edytuj </button>
+        <button *ngIf="userRole == 3"  type="button" class="przycisk btn btn-secondary"> Usuń </button>
       </div>
+
   </div>
-</div>
+<!-- </div> -->

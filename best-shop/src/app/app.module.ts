@@ -1,3 +1,4 @@
+import { ImageIdService } from './services/imageId.service';
 import { InterceptorService } from './services/interceptor';
 import { BasketService } from './services/basket.service';
 import { StorageService } from './services/storage.service';
@@ -54,7 +55,8 @@ import { ProductService } from './services/product.service';
               provide: HTTP_INTERCEPTORS,
               useClass: InterceptorService,
               multi: true
-            }],
+            },
+            ImageIdService],
   bootstrap: [AppComponent],
   entryComponents: [NgxBoxComponent]
 })

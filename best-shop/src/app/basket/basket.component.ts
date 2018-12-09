@@ -1,5 +1,8 @@
-import { StorageService } from './../services/storage.service';
+import { ImageIdService } from './../services/imageId.service';
 import { Component, OnInit } from '@angular/core';
+
+import { BasketService } from './../services/basket.service';
+import { StorageService } from './../services/storage.service';
 
 @Component({
   selector: 'app-basket',
@@ -9,21 +12,30 @@ import { Component, OnInit } from '@angular/core';
 export class BasketComponent implements OnInit {
 
   productUser;
-  constructor(private storageService: StorageService) { }
+  // proba;
+
+
+
+  constructor(private storageService: StorageService,
+              private basketService: BasketService,
+              private imageIdService: ImageIdService) { }
 
   ngOnInit() {
-    this.productUser = this.storageService.takeStorage('arrayProduct');
+     this.productUser = this.storageService.takeStorage('arrayProduct');
   }
 
   addIdx(product) {
+    this.imageIdService.addIdx(product);
+  }
 
-    if ( product.count < product.link.length - 1 ) {
-        // console.debug('Licznik', product.count);
-        // console.debug('ilosc zdjęć', product.link.length);
-        return product.count += 1;
-    } else {
-        return product.count = 0;
-    }
+
+
+  removeProduct(product) {
+    this.productUser = this.basketService.removeProduct(product, this.productUser);
+    // console.debug(this.productUser);
+
+    // Nie działa zliczanie iloci w koszyku .... gdy usuwa się produkt liczba produktow w koszyku się nie zmniejsza
+    // -.- :(
 
   }
 

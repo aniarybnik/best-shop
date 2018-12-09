@@ -1,3 +1,4 @@
+import { ImageIdService } from './../services/imageId.service';
 import { StorageService } from './../services/storage.service';
 import { BasketComponent } from './../basket/basket.component';
 import { BasketService } from './../services/basket.service';
@@ -23,12 +24,15 @@ export class ShopComponent implements OnInit {
   constructor(private http: HttpClient,
               private productService: ProductService,
               private basketService: BasketService,
-              private storageService: StorageService) { }
+              private storageService: StorageService,
+              private imageIdService: ImageIdService) { }
 
   ngOnInit() {
 
     this.currentUser = this.storageService.takeStorage('user');
     this.userRole = this.currentUser.role;
+
+
 
       this.productService.getProduct(this.userRole, this.currentUser.id).subscribe(
         (result: Product[]) => {
@@ -56,15 +60,7 @@ export class ShopComponent implements OnInit {
 
 
   addIdx(product) {
-
-    if ( product.count < product.link.length - 1 ) {
-        // console.debug('Licznik', product.count);
-        // console.debug('ilosc zdjęć', product.link.length);
-        return product.count += 1;
-    } else {
-        return product.count = 0;
-    }
-
+    this.imageIdService.addIdx(product);
   }
 
 }
