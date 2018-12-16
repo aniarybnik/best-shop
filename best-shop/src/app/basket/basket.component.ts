@@ -31,11 +31,8 @@ export class BasketComponent implements OnInit {
 
 
   removeProduct(product) {
-    this.productUser = this.basketService.removeProduct(product, this.productUser);
+    this.productUser = this.basketService.removeProduct(product);
     // console.debug(this.productUser);
-
-    // Nie działa zliczanie iloci w koszyku .... gdy usuwa się produkt liczba produktow w koszyku się nie zmniejsza
-    // -.- :(
 
   }
 

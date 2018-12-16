@@ -43,7 +43,7 @@ export class HeadingComponent implements OnInit {
   }
 
   get productsCount() {
-    return this.basketService.productsCount;
+    return  this.basketService.productsCount;
   }
 
 }
