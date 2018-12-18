@@ -20,8 +20,13 @@ export class ProductService extends Rest {
     super();
   }
 
-  addProduct(data: ProductData) {
-    return this.http.post(this.url + 'product/add', data);
+  addProduct(data: ProductData, idProduct) {
+
+    if(idProduct == null) {
+        return this.http.post(this.url + 'product/add', data);
+    } else {
+       return this.http.put(this.url + 'product/edit/' + idProduct, data);
+    }
   }
 
   getProduct(userRole, userId) {
@@ -32,6 +37,10 @@ export class ProductService extends Rest {
     } else {
       return this.http.get(this.url + 'product/list');
     }
+  }
+
+  deleteProductFromShop(productId, userId) {
+    return this.http.delete(this.url + 'product/remove/' + productId + '/' + userId);
   }
 
 }

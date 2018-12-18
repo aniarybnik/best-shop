@@ -15,7 +15,10 @@ input {
 
 }
 
-
+.noActive {
+  cursor: not-allowed;
+  pointer-events: none;
+}
 
 .buttton1 {
   margin-top: 10px;

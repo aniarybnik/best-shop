@@ -16,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
 export class ShopComponent implements OnInit {
 
   @Input() products: Product[];
+  @Output() productDelete: EventEmitter<any> = new EventEmitter();
 
   currentUser;
   userRole;
@@ -27,12 +28,10 @@ export class ShopComponent implements OnInit {
               private storageService: StorageService,
               private imageIdService: ImageIdService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
 
     this.currentUser = this.storageService.takeStorage('user');
     this.userRole = this.currentUser.role;
-
-
 
       this.productService.getProduct(this.userRole, this.currentUser.id).subscribe(
         (result: Product[]) => {
@@ -61,6 +60,20 @@ export class ShopComponent implements OnInit {
 
   addIdx(product) {
     this.imageIdService.addIdx(product);
+  }
+
+  deleteProduct(product) {
+    this.productService.deleteProductFromShop(product.id, this.currentUser.id).subscribe((result) => {
+      this.productDelete.emit(true);
+    }, (error) => {
+      console.error(error);
+    });
+
+    this.ngOnInit();
+  }
+
+  editProduct(product) {
+    this.storageService.addStorage('editProduct', product);
   }
 
 }

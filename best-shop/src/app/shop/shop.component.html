@@ -22,8 +22,8 @@
           <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
 
         <button *ngIf="userRole == 2" (click)='addProductToBasket(product)' type="button" class="przycisk btn btn-secondary">Dodaj do koszyka </button>
-        <button *ngIf="userRole == 3"  type="button" class="przycisk btn btn-secondary"> Edytuj </button>
-        <button *ngIf="userRole == 3"  type="button" class="przycisk btn btn-secondary"> Usuń </button>
+        <button *ngIf="userRole == 3" [routerLink]="['addProduct']" (click)='editProduct(product)' type="button" class="przycisk btn btn-secondary"> Edytuj </button>
+        <button *ngIf="userRole == 3" (click)='deleteProduct(product)' type="button" class="przycisk btn btn-secondary"> Usuń </button>
       </div>
 
   </div>
