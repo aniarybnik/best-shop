@@ -65,11 +65,11 @@ export class ShopComponent implements OnInit {
   deleteProduct(product) {
     this.productService.deleteProductFromShop(product.id, this.currentUser.id).subscribe((result) => {
       this.productDelete.emit(true);
+      this.ngOnInit();
     }, (error) => {
       console.error(error);
     });
 
-    this.ngOnInit();
   }
 
   editProduct(product) {

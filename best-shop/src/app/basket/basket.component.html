@@ -1,4 +1,3 @@
-<!-- <div class = "centerr"> -->
   <div class = "row"  *ngFor="let product of productUser">
 
       <div class="col-3 image">
@@ -18,8 +17,15 @@
           <p class = "price"> <span class="d"> cena: </span> {{product.price}} zł </p>
           <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
 
-        <button (click) = "removeProduct(product)" type="button" class="przycisk btn btn-secondary"> Usuń z koszyka </button>
+        <button (click) = 'removeProduct(product)' type="button" class="przycisk btn btn-secondary"> Usuń z koszyka </button>
       </div>
 
   </div>
-<!-- </div> -->
+
+  <div class="row sumDiv">
+
+        <div class="col"> Do zapłaty:  </div>
+        <div class="col"> {{sumProduct}} </div>
+        <div class="col buy" (click) = 'buyAll()'> <a> KUPUJĘ </a></div>
+
+  </div>

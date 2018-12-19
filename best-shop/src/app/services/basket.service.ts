@@ -47,14 +47,10 @@ export class BasketService {
 
     const productUser = this.storageService.takeStorage('arrayProduct');
     const index = productUser.findIndex((p) => p.id === product.id);
-
-    // console.debug(index); // index produktu w macierzy
-
     if (index > -1) {
         productUser.splice(index, 1);
         this.basket.splice(index, 1);
    }
-
    this.storageService.addStorage('arrayProduct', productUser);
    return productUser;
   }

@@ -19,7 +19,8 @@
 
       <div class = "col-4 dodajKoszyk">
           <p class = "price"> <span class="d"> cena: </span> {{product.price}} zł </p>
-          <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
+          <p class = "price"><span class="d"> producent: </span> {{product.producer}} </p>
+          <p class = "price"><span class="d"> sprzedawca: </span> {{product.seller}} </p>
 
         <button *ngIf="userRole == 2" (click)='addProductToBasket(product)' type="button" class="przycisk btn btn-secondary">Dodaj do koszyka </button>
         <button *ngIf="userRole == 3" [routerLink]="['addProduct']" (click)='editProduct(product)' type="button" class="przycisk btn btn-secondary"> Edytuj </button>

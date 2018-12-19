@@ -12,7 +12,7 @@ import { StorageService } from './../services/storage.service';
 export class BasketComponent implements OnInit {
 
   productUser;
-  // proba;
+  sumProduct: Number = 0;
 
 
 
@@ -20,8 +20,20 @@ export class BasketComponent implements OnInit {
               private basketService: BasketService,
               private imageIdService: ImageIdService) { }
 
-  ngOnInit() {
+  public ngOnInit() {
      this.productUser = this.storageService.takeStorage('arrayProduct');
+
+
+     if (this.productUser === null || this.productUser.length === 0) {
+      this.sumProduct = 0;
+     } else {
+        for (let i = 0; i <= this.productUser.length - 1; i++) {
+          const zmienna = (this.productUser[i].price);
+          console.debug(zmienna);
+          this.sumProduct += zmienna;
+          // this.sumProduct = this.productUser[i].price;
+        }
+     }
   }
 
   addIdx(product) {
@@ -33,8 +45,13 @@ export class BasketComponent implements OnInit {
   removeProduct(product) {
     this.productUser = this.basketService.removeProduct(product);
     // console.debug(this.productUser);
-
+    this.ngOnInit();
   }
 
+  buyAll() {
+    this.productUser = [];
+    this.storageService.addStorage('arrayProduct',  this.productUser);
+    this.sumProduct = 0;
+  }
 
 }

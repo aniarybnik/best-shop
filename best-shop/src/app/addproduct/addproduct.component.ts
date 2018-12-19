@@ -13,13 +13,14 @@ import { Router } from '@angular/router';
 })
 export class AddProductComponent implements OnInit {
 
+
   fileAdd;
   imageLoaded;
   editProduct;
   changedProduct;
   isEdit;  //  true --> zmiana inputa IMAGE na nieaktywny, i formularz może nie zawierać pola wypełnionego zdjęciami
-  image = []; // zmienna z obrazkami, jesli jest tryb Edycji przekazuje [];
-  idProduct; // 
+  image = []; //mienna z obrazkami, jesli jest tryb Edycji przekazuje [];
+  idProduct; //
   stringAtbutton;
 
 
@@ -31,16 +32,16 @@ export class AddProductComponent implements OnInit {
               private storageService: StorageService) { }
 
   ngOnInit(): void {
-    this.editProduct = this.storageService.takeStorage('editProduct'); // Pobranie z sesji Edytowanego produktu.
+    this.editProduct = this.storageService.takeStorage('editProduc'); // Pobranie z sesji Edytowanego produktu.
     // Jesli nie ma takiego (zwykły tryb dodawania produktu) to zmienna  == NULL
 
-    sessionStorage.removeItem('editProduct'); // usunięcie z sesji 
+    sessionStorage.removeItem('editProduct'); // usunięcie z sesji
 
-    this.isEdit = false; // Domyslnie zmienna isEdit jest ustawiona na FALSE
+    this.isEdit = false; // Domyslnie zmienna isEdit jest ustawiona n FALSE
     this.stringAtbutton = "Dodaj produkt";
 
-  
-    // Wypełnienie formularza wartosciami --  jesli brak EDYCJI to '' 
+
+    // Wypełnienie formularza wartosciami --  jesli brak EDYCJI to ''
     this.form = this.fb.group({
         name:  ['', Validators.required],
         description: ['', Validators.required],
@@ -50,7 +51,7 @@ export class AddProductComponent implements OnInit {
         producer: ['', Validators.required],
     });
 
-    // Sprawdzenie czy zmienna z sessionStorage posiada wartosc, jesli tak to jest tryb EDYCJI,i pola z inputow 
+    // Sprawdzenie czy zmienna z sessionStorage posiada wartosc, jesli tak to jest tryb EDYCJI,i pola z inputow
     // zamieniamy odpowiednimi wartosciami
     if (this.editProduct !== null) {
       this.form.setValue({
