@@ -22,6 +22,7 @@ export class BasketComponent implements OnInit {
 
   public ngOnInit() {
      this.productUser = this.storageService.takeStorage('arrayProduct');
+     this.sumProduct = 0;
 
 
      if (this.productUser === null || this.productUser.length === 0) {
