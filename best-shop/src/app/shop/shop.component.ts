@@ -73,7 +73,8 @@ export class ShopComponent implements OnInit {
   }
 
   editProduct(product) {
-    this.storageService.addStorage('editProduct', product);
+    console.debug(product);
+    this.storageService.addStorage('productEdit', product);
   }
 
 }

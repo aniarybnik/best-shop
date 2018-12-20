@@ -19,7 +19,7 @@ export class AddProductComponent implements OnInit {
   editProduct;
   changedProduct;
   isEdit;  //  true --> zmiana inputa IMAGE na nieaktywny, i formularz może nie zawierać pola wypełnionego zdjęciami
-  image = []; //mienna z obrazkami, jesli jest tryb Edycji przekazuje [];
+  image = []; // mienna z obrazkami, jesli jest tryb Edycji przekazuje [];
   idProduct; //
   stringAtbutton;
 
@@ -32,13 +32,13 @@ export class AddProductComponent implements OnInit {
               private storageService: StorageService) { }
 
   ngOnInit(): void {
-    this.editProduct = this.storageService.takeStorage('editProduc'); // Pobranie z sesji Edytowanego produktu.
+    this.editProduct = this.storageService.takeStorage('productEdit'); // Pobranie z sesji Edytowanego produktu.
     // Jesli nie ma takiego (zwykły tryb dodawania produktu) to zmienna  == NULL
 
-    sessionStorage.removeItem('editProduct'); // usunięcie z sesji
+    sessionStorage.removeItem('productEdit'); // usunięcie z sesji
 
     this.isEdit = false; // Domyslnie zmienna isEdit jest ustawiona n FALSE
-    this.stringAtbutton = "Dodaj produkt";
+    this.stringAtbutton = 'Dodaj produkt';
 
 
     // Wypełnienie formularza wartosciami --  jesli brak EDYCJI to ''
@@ -62,7 +62,7 @@ export class AddProductComponent implements OnInit {
       producer: this.editProduct.producer
     });
       this.isEdit = true;  // Tryb edycji wiec zmienna isEdit zamieniamy na true --> Jesli jest na true to brak możliwosci dodania obrazow
-      this.stringAtbutton = "Edytuj";
+      this.stringAtbutton = 'Edytuj';
     }
 
   }
@@ -95,7 +95,7 @@ export class AddProductComponent implements OnInit {
 
   addProduct() {
 
-    if(this.editProduct !== null){
+    if (this.editProduct !== null) {
       this.image = [];
       this.idProduct = this.editProduct.id;
     } else {

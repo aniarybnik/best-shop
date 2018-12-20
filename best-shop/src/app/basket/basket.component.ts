@@ -50,8 +50,9 @@ export class BasketComponent implements OnInit {
   }
 
   buyAll() {
+
+    this.basketService.buyAll();
     this.productUser = [];
-    this.storageService.addStorage('arrayProduct',  this.productUser);
     this.sumProduct = 0;
   }
 

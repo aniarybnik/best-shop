@@ -22,6 +22,7 @@ export class BasketService {
 
     this.basket.push(product);
     this.addArrayProduct('arrayProduct', this.basket);
+
   }
 
 
@@ -35,7 +36,7 @@ export class BasketService {
   get productsCount() {
     this.currentArray = this.storageService.takeStorage('arrayProduct');
 
-    if (this.currentArray == null) {
+    if (this.currentArray === null) {
       this.basketCount = 0;
     } else {
       this.basketCount = this.currentArray.length;
@@ -53,6 +54,11 @@ export class BasketService {
    }
    this.storageService.addStorage('arrayProduct', productUser);
    return productUser;
+  }
+
+  buyAll() {
+    this.storageService.addStorage('arrayProduct',  []);
+    this.basket = [];
   }
 
 }
