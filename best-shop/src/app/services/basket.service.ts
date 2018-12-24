@@ -56,6 +56,19 @@ export class BasketService {
    return productUser;
   }
 
+
+  // removePartofBasket(idx) {
+  //   const productUser = this.storageService.takeStorage('arrayProduct');
+
+  //    if (idx > -1 ) {
+  //      productUser.splice(idx, 1);
+  //      this.basket.splice(idx, 1);
+  //    }
+  //    return productUser;
+  // }
+
+
+
   buyAll() {
     this.storageService.addStorage('arrayProduct',  []);
     this.basket = [];

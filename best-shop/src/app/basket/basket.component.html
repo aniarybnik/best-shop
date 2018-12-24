@@ -1,26 +1,40 @@
-  <div class = "row"  *ngFor="let product of productUser">
 
-      <div class="col-3 image">
-          <!-- <img width="200" height="200" [src]=""> -->
-          <img (click)="addIdx(product)" [src]="'http://localhost:8443/images/' + product.link[product.count]">
-      </div>
+<div *ngFor= "let userSeller of listOfSeller index as i">
+    <div class = "seller"> {{userSeller}} </div>
+      <div *ngFor="let product of productUser">
+        <div class = "row" *ngIf= "userSeller === product.seller">
 
-      <div class="col-1"></div>
+              <div class="col-3 image">
+                  <img (click)="addIdx(product)" [src]="'http://localhost:8443/images/' + product.link[product.count]">
+              </div>
 
-      <div class="col-4 divv">
-            <p class = "title"> {{product.title}} </p>
-            <p class = "description"> {{product.description}} </p>
-      </div>
+              <div class="col-1"></div>
+
+              <div class="col-4 divv">
+                    <p class = "title"> {{product.title}} </p>
+                    <p class = "description"> {{product.description}} </p>
+              </div>
 
 
-      <div class = "col-4 dodajKoszyk">
-          <p class = "price"> <span class="d"> cena: </span> {{product.price}} zł </p>
-          <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
+              <div class = "col-4 dodajKoszyk">
+                  <p class = "price"> <span class="d"> cena: </span> {{product.price}} zł </p>
+                  <p class = "producer"><span class="d"> producent: </span> {{product.producer}} </p>
+                  <!-- <p class = "price"><span class="d"> sprzedawca: </span> {{product.seller}} </p> -->
 
-        <button (click) = 'removeProduct(product)' type="button" class="przycisk btn btn-secondary"> Usuń z koszyka </button>
-      </div>
+                <button (click) = 'removeProduct(product)' type="button" class="przycisk btn btn-secondary"> Usuń z koszyka </button>
+              </div>
 
-  </div>
+            </div>
+          </div>
+
+              <div class = " row sum">
+                  <div class="col"> Do zapłaty:  </div>
+                  <div class="col"> {{sumMatrix[i]}} </div>
+                  <div class="col buy"> <a> KUPUJĘ </a></div>
+              </div>
+
+          <div class = "break"> </div>
+</div>
 
   <div class="row sumDiv">
 

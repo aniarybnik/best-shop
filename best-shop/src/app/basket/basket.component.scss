@@ -14,6 +14,20 @@ img {
   height: 100%;
 }
 
+.seller {
+  width: 50%;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  background-color: #34495e;
+  border-radius: 8px;
+  color: pink;
+}
+
+.break {
+  padding-bottom: 2%;
+}
 // .middle {
 //   top: 20%;
 // }
@@ -58,7 +72,7 @@ img {
 }
 
 .sumDiv {
-  width: 40%;
+  width: 50%;
   text-align: center;
   padding: 5px;
   margin: 0 auto;
@@ -70,7 +84,14 @@ div a:hover {
   color: pink;
 }
 
-
+.sum {
+  width: 40%;
+  text-align: center;
+  padding: 5px;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  color: white;
+}
 
 // Stare
 
