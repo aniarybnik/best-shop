@@ -7,22 +7,19 @@
       <p> &nbsp; Shop</p>
   </div>
 
-
-
-
   <div class = "row container">
 
-    <div class="col"> <a> STRONA GŁÓWNA </a> </div>
+    <div class="col" [routerLink]="['.']"> <a> STRONA GŁÓWNA </a> </div>
     <div class="col" (click) = 'logOut()'> <a> WYLOGUJ </a></div>
 
   </div>
-
-
 
   <div class="col-2 nameLogin">
     <img width="25" height="25" src= "assets/img/user_icon.png">
     {{ currentUser.name }} {{currentUser.lastName}}
   </div>
+
+  <router-outlet></router-outlet>
+
 </div>
 
-<router-outlet></router-outlet>

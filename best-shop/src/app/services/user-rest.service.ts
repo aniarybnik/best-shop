@@ -36,6 +36,10 @@ export class UserRestService extends Rest {
     return this.http.post(this.url + 'user/add', data);
   }
 
+  userAll () {
+    return this.http.get(this.url + 'user/all');
+  }
+
 }
 
 

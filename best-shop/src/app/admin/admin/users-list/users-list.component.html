@@ -1,0 +1,25 @@
+<div class = "container">
+<table class="table table-striped">
+    <thead class = "thead">
+    <tr>
+      <th>Imię</th>
+      <th>Nazwisko</th>
+      <th>Login</th>
+      <th>Rola</th>
+      <th  colspan="4" scope="colgroup">Akcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of userAll">
+      <td>{{user.name}}</td>
+      <td>{{user.lastName}}</td>
+      <td>{{user.login}}</td>
+      <td>{{user.roleName}}</td>
+      <td colspan="4">
+        <button class = "action-E"> Edycja </button>
+        <button class = "action-U"> Usuń </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
