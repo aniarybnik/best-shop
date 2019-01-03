@@ -9,7 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ShopComponent } from './shop/shop.component';
 import { HeadingComponent } from './heading/heading.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -21,6 +21,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserRestService } from './services/user-rest.service';
 import { ContainerComponent } from './container/container.component';
 import { ProductService } from './services/product.service';
+import { AdminComponent } from './admin/admin/admin.component';
 
 
 

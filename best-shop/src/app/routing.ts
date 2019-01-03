@@ -21,6 +21,10 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'  
+  },
+  {
     path: 'registration',
     component: RegistrationComponent
   },

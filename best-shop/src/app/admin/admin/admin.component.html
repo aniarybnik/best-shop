@@ -12,9 +12,7 @@
 
   <div class = "row container">
 
-    <div class="col" [routerLink]="['.']"> <a> STRONA GŁÓWNA </a> </div>
-    <div class="col" [routerLink]="['addProduct']" *ngIf="userRole == 3 || userRole == 1"> <a> DODAJ PRZEDMIOT </a></div>
-    <div class="col" [routerLink]="['basket']" *ngIf="userRole == 2"> <a> KOSZYK - {{productsCount}}</a> </div>
+    <div class="col"> <a> STRONA GŁÓWNA </a> </div>
     <div class="col" (click) = 'logOut()'> <a> WYLOGUJ </a></div>
 
   </div>
@@ -26,3 +24,5 @@
     {{ currentUser.name }} {{currentUser.lastName}}
   </div>
 </div>
+
+<router-outlet></router-outlet>

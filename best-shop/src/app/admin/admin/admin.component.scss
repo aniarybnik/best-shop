@@ -1,0 +1,54 @@
+.img {
+    width: 25%;
+    height: 50%;
+  }
+  
+  .row {
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+  
+  // .cont {
+  //   left: 2%;
+  //   text-align: center;
+  // }
+  
+  .nameLogin {
+    // left: 17%;
+    margin-left: 6%;
+    padding: 39px;
+    color: #34495e;
+  }
+  
+  strong {
+    color: #34495e;
+    font-family: 'Bradley Hand'; //'Comic Sans MS';
+    font-size: 50px;
+  }
+  
+  .title {
+    font-family: 'Bradley Hand'; //'Courier New';
+    font-size: 30px;
+    line-height: 60%;
+    left: 4%;
+    padding-top: 20px;
+    font-style: italic;
+    cursor: default;
+  }
+  
+  .container {
+    text-align: center;
+    width: 56%;
+    height: 50px;
+    margin-top: 25px;
+    background-color: #34495e;
+    border-radius: 8px;
+    margin-left: 5%;
+    color: white;
+    cursor: pointer;
+  }
+  
+  div a:hover {
+    color: pink;
+  }
+  

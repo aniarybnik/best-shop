@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 form: FormGroup;
 modalRef: BsModalRef;
 data;
+role;
 
 constructor(private fb: FormBuilder,
               private router: Router,
@@ -41,10 +42,26 @@ constructor(private fb: FormBuilder,
   logIn() {
     this.userRestService.login({login: this.form.controls['name'].value, password: this.form.controls['password'].value})
     .subscribe((result) => {
-      // console.debug(result);
       // sessionStorage.setItem('user', JSON.stringify(result));
       this.storageService.addStorage('user', result);
-      this.router.navigate(['../container']);
+      // console.debug(result.role)
+
+      this.role = this.storageService.takeStorage('user').role;
+      console.debug(this.role);
+
+      if ( this.role === 2 || this.role === 3) {
+        this.router.navigate(['../container']);
+      } else {
+        this.router.navigate(['../admin']);
+      }
+
+      // if (result.role === 2 || result.role === 3) {
+      //   this.router.navigate(['../container']);
+      // } else {
+      //   this.router.navigate(['../admin']);
+      // }
+
+
     },
     error => {
       this.modalService.message('Brak użytkownika w bazie ! ', 'Błąd !');
