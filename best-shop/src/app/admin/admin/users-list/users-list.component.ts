@@ -1,7 +1,8 @@
+import { ModalService } from './../../../services/modal.service';
 import { UserRestService } from './../../../services/user-rest.service';
 import { Component, OnInit } from '@angular/core';
 
-export interface listUser {
+export interface ListUser {
   id: number;
   name: string;
   lastName: string;
@@ -17,16 +18,27 @@ export interface listUser {
 })
 export class UsersListComponent implements OnInit {
 
-  userAll: listUser[] = [];
+  userAll: ListUser[] = [];
 
-  constructor(private userRestService: UserRestService) { }
+  constructor(private userRestService: UserRestService,
+              private modalService: ModalService) { }
 
 
   ngOnInit() {
-      this.userRestService.userAll().subscribe((result: listUser[]) => {
+      this.userRestService.userAll().subscribe((result: ListUser[]) => {
       this.userAll = result;
       console.debug(this.userAll);
     }, (error) => {
+      console.error(error);
+    });
+  }
+
+  removeUser(user) {
+    // this.modalService.message('Usunąć tego użytkownika ?', 'UWAGA');
+    this.userRestService.removeUser(user.id).subscribe(() => {
+      this.ngOnInit();
+    },
+    (error) => {
       console.error(error);
     });
   }

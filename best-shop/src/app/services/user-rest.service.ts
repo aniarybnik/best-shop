@@ -40,6 +40,11 @@ export class UserRestService extends Rest {
     return this.http.get(this.url + 'user/all');
   }
 
+  removeUser (id) {
+    console.debug(this.url + 'user/delete/' + id);
+    return this.http.delete(this.url + 'user/delete/' + id);
+  }
+
 }
 
 
