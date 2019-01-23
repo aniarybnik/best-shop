@@ -1,25 +1,31 @@
+
 <div class = "container">
-<table class="table table-striped">
-    <thead class = "thead">
-    <tr>
-      <th>Imię</th>
-      <th>Nazwisko</th>
-      <th>Login</th>
-      <th>Rola</th>
-      <th  colspan="4" scope="colgroup">Akcje</th>
-    </tr>
+  <table class="table">
+
+    <thead class = "head">
+      <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Login</th>
+        <th>Rola</th>
+        <th colspan = "4"> Akcje </th>
+      </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let user of userAll">
-      <td>{{user.name}}</td>
-      <td>{{user.lastName}}</td>
-      <td>{{user.login}}</td>
-      <td>{{user.roleName}}</td>
-      <td colspan="4">
-        <button class = "action-E"> Edycja </button>
-        <button class = "action-U" (click) = "removeUser(user)"> Usuń </button>
-      </td>
-    </tr>
+        <tr *ngFor="let user of userAll" class = "notFirst">
+          <td>{{user.name}}</td>
+          <td>{{user.lastName}}</td>
+          <td>{{user.login}}</td>
+          <td>{{user.roleName}}</td>
+          <td colspan="4">
+            <button class = "action-E"> <img width="25" height="25" class = "img1" src = "assets/img/edit.png"> </button>
+            <button class = "action-U" (click) = "removeUser(user)"> <img width="25" height="25" class = "img1" src = "assets/img/remove.png"> </button>
+          </td>
+        </tr>
     </tbody>
+
   </table>
+
 </div>
+
+<!-- [routerLink]="['..','userEdit',user.id]" -->

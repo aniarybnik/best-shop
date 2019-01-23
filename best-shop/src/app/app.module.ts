@@ -1,3 +1,4 @@
+// import { UserModule } from './sheredModule/user.module';
 import { ImageIdService } from './services/imageId.service';
 import { InterceptorService } from './services/interceptor';
 import { BasketService } from './services/basket.service';
@@ -24,7 +25,6 @@ import { ProductService } from './services/product.service';
 import { AdminComponent } from './admin/admin/admin.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,8 @@ import { AdminComponent } from './admin/admin/admin.component';
     AppRouting,
     HttpClientModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    // UserModule
   ],
 
   providers: [UserRestService,

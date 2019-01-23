@@ -1,3 +1,5 @@
+import { UserRestService } from './../services/user-rest.service';
+// import { UserModule } from './../sheredModule/user.module';
 import { AdminComponent } from "./admin/admin.component";
 import { NgModule } from '@angular/core';
 import { AdminRouting } from './admin.routing';
@@ -14,7 +16,9 @@ import { UsersListComponent } from './admin/users-list/users-list.component';
   imports: [
     AdminRouting,
     CommonModule,
+    // UserModule
   ],
+  // providers: [UserRestService]
 
 })
 

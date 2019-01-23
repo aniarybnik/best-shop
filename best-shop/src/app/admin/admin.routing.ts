@@ -1,3 +1,4 @@
+// import { RegistrationComponent } from './../registration/registration.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders} from '@angular/core';
 import { AdminComponent } from './admin/admin.component';
@@ -22,7 +23,12 @@ export const routes: Routes = [
             {
                 path: 'users',
                 component: UsersListComponent,
-            }
+            },
+            // {
+            //   path: 'edit-user/:id',
+            //   component: RegistrationComponent,
+            //   data: {type: 'Administration'}
+            // }
         ]
     },
 ];
