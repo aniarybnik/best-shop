@@ -33,7 +33,7 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-  removeUser(user) {
+  removeUser(user: any) {
     // this.modalService.message('Usunąć tego użytkownika ?', 'UWAGA');
     this.userRestService.removeUser(user.id).subscribe(() => {
       this.ngOnInit();
@@ -41,6 +41,7 @@ export class UsersListComponent implements OnInit {
     (error) => {
       console.error(error);
     });
-  }
+
+   }
 
 }
