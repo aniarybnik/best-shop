@@ -1,4 +1,4 @@
-// import { UserModule } from './sheredModule/user.module';
+import { UserModule } from './sheredModule/user.module';
 import { ImageIdService } from './services/imageId.service';
 import { InterceptorService } from './services/interceptor';
 import { BasketService } from './services/basket.service';
@@ -17,7 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AddProductComponent } from './addProduct/addProduct.component';
 import { BasketComponent } from './basket/basket.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistrationComponent } from './registration/registration.component';
+// import { RegistrationComponent } from './registration/registration.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { UserRestService } from './services/user-rest.service';
 import { ContainerComponent } from './container/container.component';
@@ -33,7 +33,7 @@ import { AdminComponent } from './admin/admin/admin.component';
     HeadingComponent,
     AddProductComponent,
     BasketComponent,
-    RegistrationComponent,
+    // RegistrationComponent,
     NgxBoxComponent,
     ContainerComponent,
   ],
@@ -45,7 +45,7 @@ import { AdminComponent } from './admin/admin/admin.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ModalModule.forRoot(),
-    // UserModule
+    UserModule
   ],
 
   providers: [UserRestService,

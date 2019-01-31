@@ -1,4 +1,4 @@
-<div class = "body">
+<div class = "body" [ngStyle]="{'top':isEdit ? '20%' : '5%' }">
 
     <form [formGroup] = "form">
 
@@ -40,7 +40,7 @@
 
 
       <div class="form-group registration">
-      <button [disabled]='!form.valid' (click)='registartion()' type="button" class=" btn btn-secondary">Zarejestruj się</button>
+      <button [disabled]='!form.valid' type="button" class=" btn btn-secondary" (click)='registartion()'>{{stringAtbutton}}</button>
       </div>
 
     </form>

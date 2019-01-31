@@ -17,8 +17,8 @@
           <td>{{user.login}}</td>
           <td>{{user.roleName}}</td>
           <td colspan="4">
-            <button class = "action-E"> <img width="25" height="25" class = "img1" src = "assets/img/edit.png"> </button>
-            <button class = "action-U" (click) = "removeUser(user)"> ddddddd </button>
+            <button class = "action-E" [routerLink]="['..','edit-user', user.id]"> <img width="25" height="25" class = "img1" src = "assets/img/edit.png"> </button>
+            <button class = "action-U" (click) = "removeUser(user)"> <img width="25" height="25" class = "img1" src = "assets/img/remove.png"> </button>
           </td>
         </tr>
     </tbody>
@@ -27,4 +27,3 @@
 </div>
 
 <!-- [routerLink]="['..','userEdit',user.id]" -->
-<!-- <img width="25" height="25" class = "img1" src = "assets/img/remove.png"> -->

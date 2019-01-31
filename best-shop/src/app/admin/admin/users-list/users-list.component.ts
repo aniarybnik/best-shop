@@ -1,3 +1,4 @@
+import { StorageService } from 'src/app/services/storage.service';
 import { ModalService } from './../../../services/modal.service';
 import { UserRestService } from './../../../services/user-rest.service';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +22,8 @@ export class UsersListComponent implements OnInit {
   userAll: ListUser[] = [];
 
   constructor(private userRestService: UserRestService,
-              private modalService: ModalService) { }
+              private modalService: ModalService,
+              private storageService: StorageService) { }
 
 
   ngOnInit() {
@@ -43,5 +45,6 @@ export class UsersListComponent implements OnInit {
     });
 
    }
+
 
 }
